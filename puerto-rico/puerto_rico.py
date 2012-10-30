@@ -7,6 +7,7 @@ def main():
     players = int(raw_input('How many players? '))
     game = main_game.Game(players)
     board = main_board.Board(players)
+    print ''
     print 'Game stats:'
     game.print_stats()
     print 'Game board:'
