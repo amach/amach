@@ -1,38 +1,6 @@
 #!/usr/bin/env python
 
-class Building( object ):
-    pass
-
-class Guild( Building ):
-    name = 'Guild'
-    cost = 1
-    points = 2
-
-class Res( Building ):
-    name = 'Res'
-    cost = 2
-    points = 4
-
-class Plant( Building ):
-    pass
-
-class SmallIndigo( Plant ):
-    name = 'SmallIndigo'
-    cost = 1
-    points = 1
-    storage = 1
-
-class Indigo( Plant ):
-    name = 'Indigo'
-    cost = 3
-    points = 2
-    storage = 3
-
-class Tobacco( Plant ):
-    name = 'Tobacco'
-    cost = 5
-    points = 3
-    storage = 3
+import building
 
 # Generates the main board with appropriate building amounts
 class Board( object ):
@@ -40,26 +8,26 @@ class Board( object ):
         self.num_players = num_players
 
         self.prod_buildings = set([
-            Guild(), Guild(), Guild(), Guild(),
-            Res(), Res()
+            building.Guild(), building.Guild(), building.Guild(), building.Guild(),
+            building.Res(), building.Res()
         ])
 
         self.plant_buildings = set([
-            SmallIndigo(), SmallIndigo(), SmallIndigo(), SmallIndigo(),
-            Indigo(), Indigo(),
-            Tobacco(), Tobacco()
+            building.SmallIndigo(), building.SmallIndigo(), building.SmallIndigo(), building.SmallIndigo(),
+            building.Indigo(), building.Indigo(),
+            building.Tobacco(), building.Tobacco()
         ])
 
     def print_buildings( self ):
         print 'Violet Building (Cost, Victory Points):'
 
-        for building in self.prod_buildings:
-            print building.name +  ' (' + str(building.cost) + ', ' + str(building.points) + ')'
+        for build in self.prod_buildings:
+            print build.name +  ' (' + str(build.cost) + ', ' + str(build.points) + ')'
 
         print ''
         print 'Production Building (Cost, Victory Points, Storage Capacity)'
 
-        for building in self.plant_buildings:
-            print building.name + ' (' + str(building.cost) + ', ' + str(building.points) + ', ' \
-                    + str(building.storage) + ')'
+        for build in self.plant_buildings:
+            print build.name + ' (' + str(build.cost) + ', ' + str(build.points) + ', ' \
+                    + str(build.storage) + ')'
 
