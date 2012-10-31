@@ -1,28 +1,6 @@
 #!/usr/bin/env python
 
-class Role( object ):
-    pass
-
-class Settler( Role ):
-    name = 'Settler'
-
-class Mayor( Role ):
-    name = 'Mayor'
-
-class Builder( Role ):
-    name = 'Builder'
-
-class Craftsman( Role ):
-    name = 'Craftsman'
-
-class Trader( Role ):
-    name = 'Trader'
-
-class Captain( Role ):
-    name = 'Captain'
-
-class Prospector( Role ):
-    name = 'Prospector'
+import role
 
 class Game( object ):
     
@@ -32,8 +10,8 @@ class Game( object ):
         self.points1 = 32
         self.points5 = 18
 
-        self.roles = [Settler(), Mayor(), Builder(), Craftsman(),
-                Trader(), Captain()]
+        self.roles = [role.Settler(), role.Mayor(), role.Builder(), role.Craftsman(),
+                role.Trader(), role.Captain()]
 
         if num_players == 3:
             self.start_coins = 2
@@ -53,7 +31,7 @@ class Game( object ):
             self.cargo_ship1 = 5
             self.cargo_ship2 = 6
             self.cargo_ship3 = 7
-            self.roles.append(Prospector())
+            self.roles.append(role.Prospector())
         elif num_players == 5:
             self.start_coins = 4
             self.total_points = 122
@@ -61,8 +39,8 @@ class Game( object ):
             self.cargo_ship1 = 6
             self.cargo_ship2 = 7
             self.cargo_ship3 = 8
-            self.roles.append(Prospector())
-            self.roles.append(Prospector())
+            self.roles.append(role.Prospector())
+            self.roles.append(role.Prospector())
         else:
             print 'invalid number of players'
             exit(1)
@@ -75,17 +53,17 @@ class Game( object ):
 
         
     def print_stats( self ):
-        print 'Coins (1, 5): ' + str(self.coins1) + ', ' + str(self.coins5)
-        print 'Starting Coins: ' + str(self.start_coins)
-        print 'Colonists: ' + str(self.colonists)
-        print 'Colonist Ship: ' + str(self.col_ship)
-        print 'Cargo Ship 1: ' + str(self.cargo_ship1)
-        print 'Cargo Ship 2: ' + str(self.cargo_ship2)
-        print 'Cargo Ship 3: ' + str(self.cargo_ship3)
-        print 'Points (1, 5): ' + str(self.points1) + ', ' + str(self.points5)
-        print 'Total Points: ' + str(self.total_points)
-        print 'Face-up plants: ' + str(self.face_up_plants)
+        print 'Coins (1, 5): {0}, {1}'.format(self.coins1, self.coins5)
+        print 'Starting Coins: {0}'.format(self.start_coins)
+        print 'Colonists: {0}'.format(self.colonists)
+        print 'Colonist Ship: {0}'.format(self.col_ship)
+        print 'Cargo Ship 1: {0}'.format(self.cargo_ship1)
+        print 'Cargo Ship 2: {0}'.format(self.cargo_ship2)
+        print 'Cargo Ship 3: {0}'.format(self.cargo_ship3)
+        print 'Points (1, 5): {0}, {1}'.format(self.points1, self.points5)
+        print 'Total Points: {0}'.format(self.total_points)
+        print 'Face-up plants: {0}'.format(self.face_up_plants)
 
         print 'Roles:'
-        for role in self.roles:
-            print role.name
+        for r in self.roles:
+            print r.name

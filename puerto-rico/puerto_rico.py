@@ -10,8 +10,12 @@ def main():
     print ''
     print 'Game stats:'
     game.print_stats()
+    print ''
     print 'Game board:'
     board.print_buildings()
+
+    for p in range(1, players+1):
+        print 'Player {0}\'s board'.format(p)
 
 if __name__ == '__main__':
     main()

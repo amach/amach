@@ -22,12 +22,12 @@ class Board( object ):
         print 'Violet Building (Cost, Victory Points):'
 
         for build in self.prod_buildings:
-            print build.name +  ' (' + str(build.cost) + ', ' + str(build.points) + ')'
+            print '{0} ({1}, {2})'.format(build.name, build.cost, build.points)
 
         print ''
         print 'Production Building (Cost, Victory Points, Storage Capacity)'
 
         for build in self.plant_buildings:
-            print build.name + ' (' + str(build.cost) + ', ' + str(build.points) + ', ' \
-                    + str(build.storage) + ')'
+            print '{0} ({1}, {2}, {3})'.format(build.name, build.cost, build.points, 
+                    build.storage)
 
