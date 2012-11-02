@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import role
+import main_board
+import player_board
 
 class Game( object ):
     
@@ -10,8 +12,8 @@ class Game( object ):
         self.points1 = 32
         self.points5 = 18
 
-        self.roles = [role.Settler(), role.Mayor(), role.Builder(), role.Craftsman(),
-                role.Trader(), role.Captain()]
+        self.roles = set([role.Settler(), role.Mayor(), role.Builder(), role.Craftsman(),
+                role.Trader(), role.Captain()])
 
         if num_players == 3:
             self.start_coins = 2
@@ -31,7 +33,7 @@ class Game( object ):
             self.cargo_ship1 = 5
             self.cargo_ship2 = 6
             self.cargo_ship3 = 7
-            self.roles.append(role.Prospector())
+            self.roles.add(role.Prospector())
         elif num_players == 5:
             self.start_coins = 4
             self.total_points = 122
@@ -39,19 +41,27 @@ class Game( object ):
             self.cargo_ship1 = 6
             self.cargo_ship2 = 7
             self.cargo_ship3 = 8
-            self.roles.append(role.Prospector())
-            self.roles.append(role.Prospector())
+            self.roles.add(role.Prospector())
+            self.roles.add(role.Prospector())
         else:
             print 'invalid number of players'
             exit(1)
 
-        self.roles = set(self.roles)
         self.face_up_plants = num_players + 1
         self.col_ship = num_players
 
         self.coins1 = self.coins1 - (num_players * self.start_coins)
 
+        self.board = main_board.Board(num_players)
+        self.player_boards = []
+
+        for p in range(num_players):
+            new_board = player_board.PlayerBoard(self.start_coins)
+            self.player_boards.append(new_board)
+            self.player_boards[p].print_board()
         
+        self.num_players = num_players
+
     def print_stats( self ):
         print 'Coins (1, 5): {0}, {1}'.format(self.coins1, self.coins5)
         print 'Starting Coins: {0}'.format(self.start_coins)

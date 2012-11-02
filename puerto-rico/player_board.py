@@ -1,36 +1,15 @@
 #!/usr/bin/env python
 
-class Resource( object ):
-    pass
-
-class Corn( ResourceType ):
-    name = 'Corn'
-    value = 0
-
-class Indigo( ResourceType ):
-    name = 'Indigo'
-    value = 1
-
-class Sugar( ResourceType ):
-    name = 'Sugar'
-    value = 2
-
-class Tobacco( ResourceType ):
-    name = 'Tobacco'
-    value = 3
-
-class Coffee( ResourceType ):
-    name = 'Coffee'
-    value = 4
+import resource
 
 class PlayerBoard( object ):
 
     def __init__( self, num_coins ):
-        corn = Corn()
-        indigo = Indigo()
-        sugar = Sugar()
-        tobacco = Tobacco()
-        coffee = Coffee()
+        corn = resource.Corn()
+        indigo = resource.Indigo()
+        sugar = resource.Sugar()
+        tobacco = resource.Tobacco()
+        coffee = resource.Coffee()
 
         self.num_coins = num_coins
         self.max_plants = 12
