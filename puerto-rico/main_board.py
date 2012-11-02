@@ -8,8 +8,8 @@ class Board( object ):
         self.num_players = num_players
 
         self.prod_buildings = set([
-            building.Guild(), building.Guild(), building.Guild(), building.Guild(),
-            building.Res(), building.Res()
+            building.GuildHall(), building.GuildHall(), building.GuildHall(), building.GuildHall(),
+            building.Residence(), building.Residence()
         ])
 
         self.plant_buildings = set([
