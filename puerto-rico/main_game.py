@@ -44,8 +44,7 @@ class Game( object ):
             self.roles.add(role.Prospector())
             self.roles.add(role.Prospector())
         else:
-            print 'invalid number of players'
-            exit(1)
+            raise ValueError('Invalid number of players')
 
         self.face_up_plants = num_players + 1
         self.col_ship = num_players
