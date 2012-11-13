@@ -23,10 +23,28 @@ class PlayerBoard( object ):
             }
 
     def buy_building( self, building ):
-        self.buildings.append(building)
+        if self.cur_buildings < self.max_buildings:
+            if self.num_coins > building.cost:
+                self.buildings.append(building)
+                self.cur_buildings += 1
+
+                # if university is equipped, equip the building
+            else:
+                print 'Not enough money'
+        else:
+            print 'Max buildings' # check if this ever happens before game ends
 
     def buy_plant( self, plant ):
-        self.plants.append(plant)
+        if self.cur_plants < self.max_plants:
+            if self.num_coins > plant.cost:
+                self.plants.append(plant)
+                self.cur_plants += 1
+
+                # if hospice is owned + equipped, equip the plant
+            else:
+                print 'Not enough money'
+        else:
+            print 'Max plants'
 
     def produce_resources( self, resource_type, num ):
         for r in self.resources:
@@ -44,5 +62,5 @@ class PlayerBoard( object ):
         print 'Buildings (current/max): {0}/{1}'.format(self.cur_buildings, self.max_buildings)
         print 'Resources:'
         for r in self.resources:
-            print r.name, self.resources[r]
+            print r, self.resources[r]
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import building
+import violet_building
+import plant
 
 # Generates the main board with appropriate building amounts
 class Board( object ):
@@ -8,14 +9,14 @@ class Board( object ):
         self.num_players = num_players
 
         self.prod_buildings = set([
-            building.GuildHall(), building.GuildHall(), building.GuildHall(), building.GuildHall(),
-            building.Residence(), building.Residence()
+            violet_building.GuildHall(), violet_building.GuildHall(), violet_building.GuildHall(), violet_building.GuildHall(),
+            violet_building.Residence(), violet_building.Residence()
         ])
 
         self.plant_buildings = set([
-            building.SmallIndigo(), building.SmallIndigo(), building.SmallIndigo(), building.SmallIndigo(),
-            building.Indigo(), building.Indigo(),
-            building.Tobacco(), building.Tobacco()
+            plant.SmallIndigo(), plant.SmallIndigo(), plant.SmallIndigo(), plant.SmallIndigo(),
+            plant.Indigo(), plant.Indigo(),
+            plant.Tobacco(), plant.Tobacco()
         ])
 
     def print_buildings( self ):

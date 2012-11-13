@@ -12,8 +12,8 @@ class Game( object ):
         self.points1 = 32
         self.points5 = 18
 
-        self.roles = set([role.Settler(), role.Mayor(), role.Builder(), role.Craftsman(),
-                role.Trader(), role.Captain()])
+        self.roles = [role.Settler(), role.Mayor(), role.Builder(), role.Craftsman(),
+                role.Trader(), role.Captain()]
 
         if num_players == 3:
             self.start_coins = 2
@@ -33,7 +33,7 @@ class Game( object ):
             self.cargo_ship1 = 5
             self.cargo_ship2 = 6
             self.cargo_ship3 = 7
-            self.roles.add(role.Prospector())
+            self.roles.append(role.Prospector())
         elif num_players == 5:
             self.start_coins = 4
             self.total_points = 122
@@ -41,8 +41,8 @@ class Game( object ):
             self.cargo_ship1 = 6
             self.cargo_ship2 = 7
             self.cargo_ship3 = 8
-            self.roles.add(role.Prospector())
-            self.roles.add(role.Prospector())
+            self.roles.append(role.Prospector())
+            self.roles.append(role.Prospector())
         else:
             raise ValueError('Invalid number of players')
 
@@ -57,9 +57,24 @@ class Game( object ):
         for p in range(num_players):
             new_board = player_board.PlayerBoard(self.start_coins)
             self.player_boards.append(new_board)
-            self.player_boards[p].print_board()
+            #self.player_boards[p].print_board()
         
         self.num_players = num_players
+
+    def select_role( self ):
+        # player takes action and privilege
+        # other players take action
+
+        print 'Roles:'
+        for i in range(len(self.roles)):
+            print i, self.roles[i].name
+
+        sel = int(raw_input('Enter number of selected role: '))
+        role = self.roles.pop(sel)
+        if role.name == 'Settler':
+            # build plants/quarries
+            print 'list of plants here'
+            pass
 
     def print_stats( self ):
         print 'Coins (1, 5): {0}, {1}'.format(self.coins1, self.coins5)
