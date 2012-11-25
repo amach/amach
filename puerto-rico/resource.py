@@ -23,4 +23,6 @@ class Coffee( ResourceType ):
     name = 'Coffee'
     value = 4
 
-
+class Quarry( ResourceType ):
+    name = 'Quarry'
+    value = 1
