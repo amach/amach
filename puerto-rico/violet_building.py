@@ -3,7 +3,7 @@
 import building
 
 class VioletBuilding( building.Building ):
-    pass
+    occupied = False
 
 class SmallVioletBuilding( VioletBuilding ):
     pass
@@ -34,6 +34,54 @@ class SmallWarehouse( SmallVioletBuilding ):
     cost = 3
     points = 1
     desc = 'Store 1 kind of remaining good instead of spoiling (Captain phase)'
+
+class Hospice( SmallVioletBuilding ):
+    name = 'Hospice'
+    cost = 4
+    points = 2
+    desc = '+1 colonist for settling (Settler phase)'
+
+class Office( SmallVioletBuilding ):
+    name = 'Office'
+    cost = 5
+    points = 2
+    desc = 'Sell same kind of good (Trader phase)'
+
+class LargeMarket( SmallVioletBuilding ):
+    name = 'Large Market'
+    cost = 5
+    points = 2
+    desc = '+2 doubloons with sale (Trader phase)'
+
+class LargeWarehouse( SmallVioletBuilding ):
+    name = 'Large Warehouse'
+    cost = 6
+    points = 2
+    desc = 'Store 2 kinds of goods (Captain phase)'
+
+class Factory( SmallVioletBuilding ):
+    name = 'Factory'
+    cost = 7
+    points = 3
+    desc = '+0/1/2/3/5 doubloons with production (Craftsman phase)'
+
+class University( SmallVioletBuilding ):
+    name = 'University'
+    cost = 8
+    points = 3
+    desc = '+1 colonist for building (Builder phase)'
+
+class Harbor( SmallVioletBuilding ):
+    name = 'Harbor'
+    cost = 8
+    points = 3
+    desc = '+1 victory point per delivery (Captain phase)'
+
+class Wharf( SmallVioletBuilding ):
+    name = 'Wharf'
+    cost = 9
+    points = 3
+    desc = 'Your own ship (Captain phase)'
 
 class GuildHall( BigVioletBuilding ):
     name = 'Guild Hall'

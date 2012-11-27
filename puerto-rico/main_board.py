@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import violet_building
-import plant
+import plant_storage
 
 # Generates the main board with appropriate building amounts
 class Board( object ):

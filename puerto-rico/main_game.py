@@ -75,7 +75,7 @@ class Game( object ):
             #print 'rand_plant:', rand_plant.name
             self.plants.append(rand_plant)
 
-        # should quarry be appended to list of face-up plants?
+        # TBD: should quarry be appended to list of face-up plants?
 
         for p in range(num_players):
             new_board = player_board.PlayerBoard(self.start_coins)
