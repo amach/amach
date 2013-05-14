@@ -69,7 +69,7 @@ class Game( object ):
         # "hand out" starting coins
         self.coins1 = self.coins1 - (num_players * self.start_coins)
         
-        # "draw" random face-up plants
+        # "draw" random face-up plants from piles
         for plant in range(self.face_up_plants):
             rand_plant = self.draw_rand_plant()
             #print 'rand_plant:', rand_plant.name
@@ -85,6 +85,8 @@ class Game( object ):
         self.num_players = num_players
 
     def draw_rand_plant( self ):
+
+        # Set up "division lines" to associate number ranges with each type of plant
         total = self.num_corn + self.num_indigo + self.num_sugar + self.num_tobacco + self.num_coffee
         indigo_div = self.num_corn + self.num_indigo
         sugar_div = indigo_div + self.num_sugar
